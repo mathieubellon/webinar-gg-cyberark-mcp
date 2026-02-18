@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(new)",
+      "Skill(deploy)",
+      "Skill(domain)",
+      "Bash(railway logs:*)"
+    ]
+  }
+}

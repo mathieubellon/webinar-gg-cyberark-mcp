@@ -2,23 +2,23 @@
 marp: true
 theme: default
 paginate: true
-footer: '<span class="footer-left"><img src="gg-logo.svg" class="footer-logo" alt="" /> GitGuardian</span><span class="footer-right">Confidential</span>'
+footer: '<span class="footer-left"><img src="gitguardian-icon-white-background.svg" class="footer-logo" alt="" /> GitGuardian</span><span class="footer-right">Confidential</span>'
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
   :root {
-    --bg: #000;
-    --fg: #fff;
-    --fg-secondary: #c8cada;
+    --bg: #ffffff;
+    --fg: #081736;
+    --fg-secondary: #3a4260;
     --muted: #7a7e98;
     --accent: #4E73DB;
-    --accent-light: #9FA8EA;
-    --accent-soft: #C0C4F2;
-    --accent-hover: #295ABE;
+    --accent-light: #3560C8;
+    --accent-soft: #295ABE;
+    --accent-hover: #1e4ba8;
     --accent-dark: #0C2860;
-    --accent-surface: #E0E1F9;
-    --code-bg: #0a0e1a;
-    --table-border: #1a2040;
+    --accent-surface: #E8EAFB;
+    --code-bg: #f0f2f8;
+    --table-border: #d8dce8;
   }
 
   section {
@@ -44,25 +44,26 @@ style: |
     align-items: center;
     width: calc(100% - 160px);
     left: 80px;
-    bottom: 30px;
-    padding-top: 14px;
+    bottom: 16px;
+    padding-top: 16px;
     border-top: 2px solid var(--accent);
     font-family: 'Instrument Sans', sans-serif;
-    font-size: 0.6em;
+    font-size: 0.75em;
     color: var(--muted);
   }
 
   section footer .footer-left {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     color: var(--fg);
     font-weight: 600;
     letter-spacing: 0.02em;
+    font-size: 1.05em;
   }
 
   section footer .footer-logo {
-    height: 22px;
+    height: 32px;
     width: auto;
     vertical-align: middle;
   }
@@ -70,6 +71,7 @@ style: |
   section footer .footer-right {
     color: var(--muted);
     font-weight: 400;
+    font-size: 1.05em;
   }
 
   /* Headings — Funnel Display only */
@@ -101,7 +103,7 @@ style: |
     line-height: 1.3;
   }
 
-  /* Bold — white, not colored (accessibility guideline) */
+  /* Bold — dark, not colored (accessibility guideline) */
   strong {
     color: var(--fg);
     font-weight: 700;
@@ -109,7 +111,7 @@ style: |
 
   /* Emphasis = section label */
   em {
-    color: var(--muted);
+    color: var(--accent);
     font-style: italic;
     font-size: 0.85em;
   }
@@ -154,7 +156,7 @@ style: |
   /* Code blocks */
   code {
     background: var(--code-bg);
-    color: var(--accent-light);
+    color: var(--accent-dark);
     padding: 2px 8px;
     border-radius: 4px;
     font-size: 0.82em;
@@ -163,15 +165,15 @@ style: |
   }
 
   pre {
-    background: var(--code-bg) !important;
-    border: 1px solid var(--table-border);
+    background: var(--fg) !important;
+    border: 1px solid #1a2040;
     border-radius: 8px;
     padding: 18px !important;
     margin: 0.6em 0;
   }
 
   pre code {
-    color: var(--fg-secondary);
+    color: #c8cada;
     background: transparent;
     padding: 0;
     font-size: 0.72em;
@@ -191,7 +193,7 @@ style: |
 
   section table thead th {
     background: var(--accent-dark) !important;
-    color: var(--fg) !important;
+    color: #fff !important;
     font-weight: 600;
     text-align: left;
     padding: 8px 14px;
@@ -212,7 +214,7 @@ style: |
   }
 
   section table tbody tr:nth-child(even) td {
-    background: #060a14 !important;
+    background: var(--accent-surface) !important;
   }
 
   /* Blockquotes */
@@ -229,7 +231,7 @@ style: |
   }
 
   blockquote strong {
-    color: var(--fg-secondary);
+    color: var(--fg);
   }
 
   /* Title slide */

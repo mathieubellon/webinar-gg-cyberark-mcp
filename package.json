@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "preview": "marp slides.md --preview",
+    "build": "marp slides.md -o dist/index.html && cp *.svg dist/",
     "build:html": "marp slides.md -o slides.html",
     "build:pdf": "marp slides.md -o slides.pdf",
     "build:pptx": "marp slides.md -o slides.pptx",
-    "watch": "marp slides.md -w"
+    "watch": "marp slides.md -w",
+    "start": "serve dist -l tcp://0.0.0.0:${PORT:-3000}"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@marp-team/marp-cli": "^4.2.3"
+  },
+  "dependencies": {
+    "serve": "^14.2.5"
   }
 }
