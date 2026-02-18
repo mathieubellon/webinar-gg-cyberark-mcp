@@ -11,9 +11,9 @@ style: |
      ═══════════════════════════════════════════════ */
   :root {
     --bg: #0C1222;
-    --fg: #E8EAF0;
-    --fg-secondary: #B8BDD0;
-    --muted: #7B82A0;
+    --fg: #FFFFFF;
+    --fg-secondary: #D6DAE8;
+    --muted: #9AA0B8;
     --accent: #6B8FE8;
     --accent-light: #82A4F0;
     --accent-soft: #5A7FD8;
@@ -26,8 +26,8 @@ style: |
     --table-header-bg: #1A2444;
     --pre-bg: #0A0F1C;
     --pre-border: #1E2844;
-    --pre-code-fg: #C8CADA;
-    --blockquote-fg: #9098B8;
+    --pre-code-fg: #E0E2EA;
+    --blockquote-fg: #B0B8D0;
     --footer-logo-filter: none;
   }
 
@@ -323,6 +323,25 @@ style: |
 ## GitGuardian + CyberArk MCP Servers in Action
 
 *A joint webinar — GitGuardian & CyberArk*
+
+---
+
+# Your Hosts Today
+
+<table style="width:100%; border:none !important; margin-top:0.5em;">
+<tr style="border:none !important;">
+<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="mathieu-bellon.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
+<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="or-geisler.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
+<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="dwayne-mcdaniel.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
+</tr>
+<tr style="border:none !important;">
+<td style="text-align:center; border:none !important; padding:8px 16px 0; background:transparent !important; font-size:0.8em; line-height:1.4;"><strong>Mathieu Bellon</strong><br/>Product Manager<br/>GitGuardian</td>
+<td style="text-align:center; border:none !important; padding:8px 16px 0; background:transparent !important; font-size:0.8em; line-height:1.4;"><strong>Or Geisler</strong><br/>Software Engineer<br/>CyberArk</td>
+<td style="text-align:center; border:none !important; padding:8px 16px 0; background:transparent !important; font-size:0.8em; line-height:1.4;"><strong>Dwayne McDaniel</strong><br/>Dev Advocate · <em>Moderator</em><br/>GitGuardian</td>
+</tr>
+</table>
+
+> *Questions? Drop them in the chat — we'll have a live Q&A at the end.*
 
 ---
 
@@ -762,15 +781,27 @@ SLACK_WEBHOOK = os.environ["CONJUR_SLACK_WEBHOOK"]
 
 ---
 
+# Find It. Fix It. Sustain It.
+
+**Find it.** Detect exposed secrets and risky patterns with GitGuardian's 500+ detectors — in your IDE, in CI/CD, across all repos.
+
+**Fix it.** AI uses CyberArk Conjur MCP to vault secrets with the right policies, automatically. From detection to remediation in seconds — no context switching.
+
+**Sustain it.** Make it continuous. Monitor for regressions, enforce rotation, track NHI lifecycle — even as teams, repos, and vaults scale across the enterprise.
+
+> *One workflow. Two MCP servers. A secure-by-default developer experience.*
+
+---
+
 <!-- _class: title -->
 
 # Key Takeaways
 
-1. **Secret & vault sprawl is a real, growing problem** — NHIs outnumber humans 50:1
-2. **Vaults are the right answer** — but they're hard to use consistently at scale
-3. **MCP bridges the gap** — AI agents orchestrate detection and remediation automatically
-4. **GitGuardian detects, CyberArk vaults** — two MCP servers, one seamless workflow
-5. **Lower cognitive load** — developers focus on code, AI handles security toil
+1. **Secret & vault sprawl is real** — NHIs outnumber humans 50:1 and growing
+2. **Find it** — GitGuardian detects secrets in your IDE, before they reach git
+3. **Fix it** — CyberArk Conjur vaults them automatically via MCP, no context switching
+4. **Sustain it** — continuous monitoring, rotation enforcement, and governance at scale
+5. **MCP is the glue** — AI agents orchestrate both, so developers focus on code
 
 ---
 
