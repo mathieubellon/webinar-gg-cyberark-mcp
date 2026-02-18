@@ -6,26 +6,36 @@ footer: '<span class="footer-left"><img src="gitguardian-icon-white-background.s
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
+  /* ═══════════════════════════════════════════════
+     DARK THEME (default)
+     ═══════════════════════════════════════════════ */
   :root {
-    --bg: #ffffff;
-    --fg: #081736;
-    --fg-secondary: #3a4260;
-    --muted: #7a7e98;
-    --accent: #4E73DB;
-    --accent-light: #3560C8;
-    --accent-soft: #295ABE;
-    --accent-hover: #1e4ba8;
-    --accent-dark: #0C2860;
-    --accent-surface: #E8EAFB;
-    --code-bg: #f0f2f8;
-    --table-border: #d8dce8;
+    --bg: #0C1222;
+    --fg: #E8EAF0;
+    --fg-secondary: #B8BDD0;
+    --muted: #7B82A0;
+    --accent: #6B8FE8;
+    --accent-light: #82A4F0;
+    --accent-soft: #5A7FD8;
+    --accent-hover: #4A6FC8;
+    --accent-dark: #A0B8F8;
+    --accent-surface: #151D32;
+    --code-bg: #161E30;
+    --code-inline-fg: #A0B8F8;
+    --table-border: #2A3350;
+    --table-header-bg: #1A2444;
+    --pre-bg: #0A0F1C;
+    --pre-border: #1E2844;
+    --pre-code-fg: #C8CADA;
+    --blockquote-fg: #9098B8;
+    --footer-logo-filter: none;
   }
 
   section {
     font-family: 'Instrument Sans', sans-serif;
     background-color: var(--bg);
     color: var(--fg);
-    padding: 50px 80px 120px 80px;
+    padding: 50px 80px 100px 80px;
     justify-content: flex-start;
     font-size: 26px;
     line-height: 1.6;
@@ -66,6 +76,7 @@ style: |
     height: 32px;
     width: auto;
     vertical-align: middle;
+    filter: var(--footer-logo-filter);
   }
 
   section footer .footer-right {
@@ -80,7 +91,7 @@ style: |
     color: var(--fg);
     font-weight: 800;
     font-size: 2.1em;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.3em;
     letter-spacing: -0.01em;
     line-height: 1.15;
   }
@@ -103,7 +114,7 @@ style: |
     line-height: 1.3;
   }
 
-  /* Bold — dark, not colored (accessibility guideline) */
+  /* Bold */
   strong {
     color: var(--fg);
     font-weight: 700;
@@ -153,10 +164,10 @@ style: |
     color: var(--fg-secondary);
   }
 
-  /* Code blocks */
+  /* Inline code */
   code {
     background: var(--code-bg);
-    color: var(--accent-dark);
+    color: var(--code-inline-fg);
     padding: 2px 8px;
     border-radius: 4px;
     font-size: 0.82em;
@@ -164,24 +175,25 @@ style: |
     border: 1px solid var(--table-border);
   }
 
+  /* Code blocks */
   pre {
-    background: var(--fg) !important;
-    border: 1px solid #1a2040;
+    background: var(--pre-bg) !important;
+    border: 1px solid var(--pre-border);
     border-radius: 8px;
     padding: 18px !important;
     margin: 0.6em 0;
   }
 
   pre code {
-    color: #c8cada;
+    color: var(--pre-code-fg);
     background: transparent;
     padding: 0;
     font-size: 0.72em;
-    line-height: 1.6;
+    line-height: 1.5;
     border: none;
   }
 
-  /* Tables — force override Marp default theme */
+  /* Tables */
   section table {
     font-size: 0.72em;
     border-collapse: collapse;
@@ -192,17 +204,17 @@ style: |
   }
 
   section table thead th {
-    background: var(--accent-dark) !important;
+    background: var(--table-header-bg) !important;
     color: #fff !important;
     font-weight: 600;
     text-align: left;
-    padding: 8px 14px;
+    padding: 10px 14px;
     border: none !important;
     border-bottom: 2px solid var(--accent) !important;
   }
 
   section table tbody td {
-    padding: 8px 14px;
+    padding: 10px 14px;
     border: none !important;
     border-bottom: 1px solid var(--table-border) !important;
     color: var(--fg-secondary) !important;
@@ -226,7 +238,7 @@ style: |
   }
 
   blockquote p {
-    color: var(--muted);
+    color: var(--blockquote-fg);
     font-style: italic;
   }
 
@@ -306,182 +318,94 @@ style: |
 
 <!-- _class: title -->
 
-# MCP & GitGuardian
+# Tackling Secret & Vault Sprawl with AI
 
-## How MCP works and why it matters for agents & developers
+## GitGuardian + CyberArk MCP Servers in Action
 
-*This document is for informational purposes only*
+*A joint webinar — GitGuardian & CyberArk*
+
+---
+
+# What We'll Cover Today
+
+1. **Live Demo** — Watch AI detect secrets and vault them automatically
+2. **Why We Built This** — The rise of NHIs, secret sprawl, and vault sprawl
+3. **The Bigger Picture** — Identity-based workloads vs. enterprise reality
+4. **GitGuardian Platform & MCP** — Detection, remediation, honeytokens
+5. **CyberArk Conjur & MCP** — Secrets management and vault integration
+6. **Demo Deep Dive** — Step-by-step walkthrough of what happened
+7. **Putting It All Together** — Key takeaways and Q&A
 
 ---
 
 <!-- _class: divider -->
 
-# Part 1
+# Live Demo
 
-## What is MCP and how does it work?
+## Watch the full workflow end-to-end
 
----
-
-*The problem*
-
-# Fragmented Integrations
-
-Today's AI assistants are **isolated from the outside world**.
-
-Each integration requires a **custom, one-off connector**:
-
-- Different APIs, different auth, different data formats
-- Every new tool = new code to write and maintain
-- **N agents x M tools = N x M integrations**
-
-> *"Before MCP, connecting AI to external tools felt like the early days of phone chargers — every vendor had their own plug."*
+### Then we'll break it all down
 
 ---
 
-*The solution*
+# What You're About to See
 
-# Enter MCP: A USB-C Port for AI
+A developer working in their IDE with **two MCP servers** running side by side:
 
-**Model Context Protocol** is an open standard introduced by Anthropic (Nov 2024).
+- **GitGuardian MCP** — detects hardcoded secrets in real time
+- **CyberArk Conjur MCP** — stores secrets securely in Conjur vault
 
-It provides a **single, universal interface** between AI applications and external systems.
+The AI agent **orchestrates both** — no manual steps, no context switching.
 
-| Before MCP | With MCP |
-|---|---|
-| Custom connector per tool | **One standard protocol** |
-| Tight coupling | **Loose coupling** |
-| Hard to scale | **Plug-and-play** |
-| Vendor lock-in | **Open ecosystem** |
-
-MCP is now maintained by the **Linux Foundation** (Agentic AI Foundation).
+> *Pay attention to the flow. We'll slow it down and explain every step after.*
 
 ---
 
-*Architecture*
-
-# MCP Architecture
-
-A clean **client-server** model:
+# End-to-End Workflow
 
 ```
-┌──────────────────┐          ┌──────────────────┐
-│   MCP Client     │  JSON-RPC│   MCP Server      │
-│ (AI App / Agent) │◄────────►│ (Tool / Service)  │
-│                  │   2.0    │                    │
-│  Claude, Cursor, │          │  GitHub, Slack,    │
-│  Windsurf, etc.  │          │  DB, GitGuardian…  │
-└──────────────────┘          └──────────────────┘
+  Developer (IDE)         GitGuardian MCP         CyberArk MCP
+       │                        │                       │
+       │  "Review my code"      │                       │
+       │───────────────────────►│                       │
+       │                        │  scan_secrets         │
+       │   ⚠ Found 3 secrets    │                       │
+       │◄───────────────────────│                       │
+       │                        │                       │
+       │  "Help me fix these"   │                       │
+       │───────────────────────►│  remediation plan     │
+       │                        │──────────────────────►│
+       │                        │                       │  store in vault
+       │                        │◄──────────────────────│  return references
+       │   ✅ Secrets vaulted    │                       │
+       │◄───────────────────────│                       │
+       │   Code updated with vault references           │
 ```
-
-- **MCP Client** — The AI-powered application (IDE, chatbot, agent)
-- **MCP Server** — Exposes capabilities from an external system
-- **Transport** — JSON-RPC 2.0, lightweight and language-agnostic
-
----
-
-*Primitives*
-
-# What Can an MCP Server Expose?
-
-MCP servers offer three primitives to clients:
-
-| Primitive | Description | Example |
-|---|---|---|
-| **Tools** | Functions the agent can call | `scan_secrets`, `create_issue` |
-| **Resources** | Data the agent can read | Files, DB records, API docs |
-| **Prompts** | Reusable prompt templates | "Summarize this PR", "Triage bug" |
-
-The agent **discovers** available tools at runtime — no hardcoding needed.
-
----
-
-*Flow*
-
-# How an MCP Interaction Works
-
-```
-1.  Agent connects to MCP server
-2.  Server advertises its tools (name, description, schema)
-3.  User asks: "Scan my code for secrets"
-4.  Agent picks the right tool → scan_secrets
-5.  Agent calls the tool via JSON-RPC
-6.  Server executes and returns results
-7.  Agent interprets results and responds to user
-```
-
-The key insight: **the agent decides which tool to use** based on the user's intent and the tool descriptions.
 
 ---
 
 <!-- _class: divider -->
 
-# Why MCP Matters
+# Why We Built This
 
-## For agents and developers alike
-
----
-
-*For agents*
-
-# Why MCP Matters for Agents
-
-- **Dynamic tool discovery** — agents learn what's available at runtime
-- **Standardized interface** — one protocol to interact with any service
-- **Composability** — chain multiple MCP servers in a single workflow
-- **Scalability** — add new capabilities without changing agent code
-- **Context awareness** — agents get richer context from external systems
-
-> *An agent with MCP can go from "I can only chat" to "I can read your DB, file issues, scan code, deploy services" — all through the same protocol.*
+## The story of NHI rise and secret sprawl
 
 ---
 
-*For developers*
+# The Rise of Non-Human Identities
 
-# Why MCP Matters for Developers
+The number of **non-human identities** (NHIs) is exploding:
 
-- **Write once, use everywhere** — build an MCP server, any MCP client can use it
-- **Stay in your IDE** — tools come to you, not the other way around
-- **Reduced context switching** — no need to leave Cursor to check dashboards
-- **Community ecosystem** — thousands of open-source MCP servers available
-- **Easy to build** — SDKs in Python, TypeScript, Java, Go, Rust, C#
+- API keys, service accounts, tokens, certificates, OAuth apps
+- NHIs now outnumber human identities **50:1** in most enterprises
+- Every microservice, CI/CD pipeline, and cloud resource needs credentials
+- **Each NHI is a potential attack vector** if not properly managed
 
-```bash
-# Use any MCP server from your IDE with zero custom code
-npx @anthropic/mcp-server-github   # GitHub integration
-npx @gitguardian/mcp-server        # Security scanning
-```
+> *The average enterprise manages over 10,000 NHIs — most with no lifecycle management.*
 
 ---
 
-*Ecosystem*
-
-# The MCP Ecosystem Today
-
-**Adoption has been massive** since the Nov 2024 launch:
-
-- **Anthropic** — native support in Claude
-- **OpenAI** — adopted MCP in their agents
-- **Google DeepMind** — integrated MCP support
-- **Cursor, Windsurf, Zed** — IDE-level integration
-- **1000s of community servers** — GitHub, Slack, DBs, monitoring, security
-
-MCP is becoming the **de facto standard** for agent-tool communication.
-
----
-
-<!-- _class: divider -->
-
-# Part 2
-
-## GitGuardian MCP Server
-
-### Real-time secrets security in your development workflow
-
----
-
-*The problem*
-
-# Secrets in Code
+# Secrets Are Everywhere
 
 Hardcoded secrets are **one of the most common security vulnerabilities**:
 
@@ -496,129 +420,128 @@ What if your AI coding assistant could catch secrets **before you commit**?
 
 ---
 
-*Overview*
+# Vaults Are the Right Answer — But...
 
-# GitGuardian MCP Server
+Vaults are the **correct** answer. **The problem? Vault sprawl.**
 
-Launched **July 2025** — **real-time secrets detection directly into your IDE**.
+- Multiple vaults across teams, clouds, and environments
+- Developers don't know **which vault to use** or **how to use it**
+- Each vault has its own API, CLI, and auth flow
 
-Works inside **Cursor**, **Windsurf**, and **Zed** — wherever your agent lives.
-
-| Tool | What it does |
+| The ideal | The reality |
 |---|---|
-| `scan_secrets` | Proactively scan code for **500+ secret types** |
-| `list_incidents` | View existing secret incidents in your repo |
-| `remediate_secret_incidents` | Guided remediation with **best practices** |
-| `generate_honey_tokens` | Create and hide honeytokens for **breach detection** |
+| All secrets in vaults | Scattered across code, configs, .env |
+| Clear ownership | Nobody knows who owns what |
+| Automated rotation | Manual — or none at all |
+| One vault | **3-5 vaults** per enterprise |
 
 ---
 
-*In practice*
+# The Missing Link: Detection to Remediation
 
-# Proactive Scanning — `scan_secrets`
-
-You write code, your agent **automatically detects secrets** before commit:
+Today's workflow is **broken**:
 
 ```
-Developer: "Review this file before I commit"
-
-Agent: ⚠️  I found a hardcoded AWS access key on line 42.
-       Let me help you move it to an environment variable.
-
-       → Created .env with AWS_ACCESS_KEY placeholder
-       → Updated code to use os.environ["AWS_ACCESS_KEY"]
-       → Added .env to .gitignore
+ Developer commits secret
+        ▼
+ Scanner detects it (CI/CD — hours later)
+        ▼
+ Alert fires → dashboard → ticket
+        ▼
+ Developer context-switches
+        ▼
+ Manually rotates + vaults the secret  →  30-60 min of toil
 ```
 
-The security feedback loop goes from **hours to seconds**.
-
----
-
-*In practice*
-
-# Incident Management — `list_incidents`
-
-Query existing secret incidents without leaving your IDE:
-
-```
-Developer: "Are there any secret incidents in this repo?"
-
-Agent: I found 3 open incidents:
-
-       1. AWS Secret Key in config/settings.py (line 15)
-          → Assigned to you, opened 2 days ago
-       2. Slack Webhook URL in deploy.sh (line 8)
-          → Unassigned, opened 1 week ago
-       3. GitHub PAT in .env.production (line 3)
-          → Assigned to @teammate, opened 3 days ago
-```
-
----
-
-*In practice*
-
-# Guided Remediation — `remediate_secret_incidents`
-
-Step-by-step fix with **best practices** for each secret type:
-
-```
-Developer: "Help me fix the AWS key leak"
-
-Agent: Here's the remediation plan:
-
-       1. ✅ Rotate the AWS access key in IAM console
-       2. ✅ Replace hardcoded value with env variable
-       3. ✅ Create .env.example with placeholder
-       4. ✅ Update .gitignore to exclude .env
-       5. 🔧 Optional: git commands to clean history
-```
-
-Contextual advice — **not generic warnings**.
-
----
-
-*In practice*
-
-# Honeytokens — `generate_honey_tokens`
-
-Plant **decoy credentials** in your codebase to detect intrusions:
-
-```
-Developer: "Add a honeytoken to this config file"
-
-Agent: Done! I've hidden a GitGuardian honeytoken in
-       config/database.yml.
-
-       If anyone tries to use this credential,
-       GitGuardian will alert you immediately.
-
-       → Early breach detection
-       → Zero false positives (only triggered on actual use)
-```
+**What if AI could bridge this gap — from detection to vault — in seconds?**
 
 ---
 
 <!-- _class: divider -->
 
-# Why GitGuardian MCP?
+# The Bigger Picture
+
+## Identity-based workloads and enterprise reality
 
 ---
 
-*Shift-left security*
+# Where We Should Be Heading
 
-# Why It Matters for Developers
+The industry is moving toward **identity-based workloads**:
 
-| Traditional Approach | With GitGuardian MCP |
+- Workload identity federation (no more long-lived secrets)
+- Just-in-time credential issuance
+- Zero standing privileges
+- Every workload authenticated by identity, not by secret
+
+**But the messy reality?** This transformation takes **years** in the enterprise.
+
+In the meantime, teams need practical tools to manage the **millions of secrets that exist today** — scattered across repos, configs, and environments.
+
+> *Catch our previous webinar for a deeper dive on this topic — link in the chat.*
+
+---
+
+<!-- _class: divider -->
+
+# GitGuardian
+
+## Platform overview & MCP architecture
+
+---
+
+# GitGuardian at a Glance
+
+**The #1 secrets detection platform**, trusted by 600K+ developers.
+
+- **500+ secret detectors** — API keys, tokens, passwords, certificates
+- **Monitors code everywhere** — GitHub, GitLab, Bitbucket, CI/CD, Docker images
+- **Real-time scanning** — pre-commit, pre-push, and in CI/CD pipelines
+- **Incident management** — track, assign, and remediate from one dashboard
+- **Honeytokens** — plant decoy credentials to detect intrusions
+
+Works across the full SDLC — from IDE to production.
+
+---
+
+# Quick MCP Refresher
+
+**Model Context Protocol** — an open standard for connecting AI agents to external tools.
+
+```
+┌──────────────────┐          ┌──────────────────┐
+│   MCP Client     │  JSON-RPC│   MCP Server      │
+│ (AI App / Agent) │◄────────►│ (Tool / Service)  │
+│  Claude, Cursor, │   2.0    │  GitGuardian,      │
+│  Windsurf, etc.  │          │  CyberArk, etc.    │
+└──────────────────┘          └──────────────────┘
+```
+
+- Agent **discovers** tools at runtime and **decides** which to call
+- **Write once, use everywhere** — any MCP client can use any MCP server
+- Maintained by the **Linux Foundation** (Agentic AI Foundation)
+
+---
+
+# GitGuardian MCP Server
+
+**Real-time secrets detection directly in your IDE** — wherever your agent lives.
+
+| Tool | What it does |
 |---|---|
-| Secrets found in CI/CD | Secrets found **while coding** |
-| Context switch to dashboard | Stay **in your IDE** |
-| Manual remediation | **AI-guided** fix with best practices |
-| Reactive detection | **Proactive** scanning before commit |
-| Hours to remediate | **Seconds** to remediate |
+| `scan_secrets` | Scan code for **500+ secret types** |
+| `list_incidents` | View secret incidents in your repo |
+| `remediate_secret_incidents` | Guided remediation with **best practices** |
+| `generate_honey_tokens` | Honeytokens for **breach detection** |
+
+```json
+{ "mcpServers": { "gitguardian": {
+    "command": "pipx", "args": ["run", "ggshield", "mcp"] } } }
+```
+
+**Open source** — [github.com/GitGuardian/gg-mcp](https://github.com/GitGuardian/gg-mcp)
 
 ---
-
-*Design principles*
 
 # Built for Security
 
@@ -628,33 +551,214 @@ The GitGuardian MCP Server is built with security in mind:
 - **Safe and supervised** — agent behavior is auditable
 - **500+ detectors** — covers all major secret types
 - **Works with your stack** — language and framework agnostic
-- **Open source** — available at [github.com/GitGuardian/gg-mcp](https://github.com/GitGuardian/gg-mcp)
 
 > *"A new security primitive — proactive, context-aware security actions directly in the development environment."*
 > *— Eric Fourrier, CEO GitGuardian*
 
 ---
 
-*Getting started*
+<!-- _class: divider -->
 
-# Get Started in 2 Minutes
+# CyberArk Conjur
 
-### 1. Add to your MCP configuration
+## Platform overview & MCP architecture
 
-```json
-{
-  "mcpServers": {
-    "gitguardian": {
-      "command": "pipx",
-      "args": ["run", "ggshield", "mcp"]
-    }
-  }
-}
+---
+
+# CyberArk Conjur at a Glance
+
+**Enterprise-grade secrets management** for DevOps and cloud-native workloads.
+
+- **Centralized secrets vault** — store, rotate, and manage credentials at scale
+- **Policy-as-code** — access control defined in declarative policies
+- **Dynamic secrets** — just-in-time credential generation
+- **Integrations everywhere** — Kubernetes, Ansible, Terraform, Jenkins, CI/CD
+- **Audit trail** — every secret access is logged and traceable
+
+Conjur is the foundation for securing **non-human identities** in the enterprise.
+
+---
+
+# CyberArk Conjur MCP Server
+
+**AI-driven secrets vaulting directly from your IDE.**
+
+The CyberArk MCP server lets an AI agent **store secrets in Conjur** — the developer never leaves their editor.
+
+| Tool | What it does |
+|---|---|
+| `store_secret` | Store a credential securely in Conjur vault |
+| `retrieve_secret` | Fetch a secret by its vault reference |
+| `list_secrets` | List available secrets and their policies |
+| `rotate_secret` | Trigger rotation of a stored credential |
+
+The agent handles the vault API, auth, and policy — **the developer just says "fix it"**.
+
+---
+
+# Two MCP Servers, One Workflow
+
+GitGuardian and CyberArk MCP servers work **side by side**:
+
+```
+   AI Agent (IDE)       GitGuardian MCP       CyberArk Conjur MCP
+  ┌───────────────┐    ┌─────────────────┐    ┌─────────────────┐
+  │ Orchestrates  │───►│  DETECT         │    │                 │
+  │ both servers  │    │  What secrets   │    │                 │
+  │ automatically │    │  are exposed?   │    │                 │
+  │               │    │  REMEDIATE      │───►│  VAULT          │
+  │               │    │  How to fix it? │    │  Store securely │
+  └───────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-### 2. Start using it
+- **Lower cognitive load** — devs don't need to know vault APIs
+- **Faster remediation** — from detection to vault in seconds
+- **Consistent policy** — secrets land in the right vault with the right ACLs
 
-Just ask your agent: *"Scan this file for secrets"* — it handles the rest.
+---
+
+<!-- _class: divider -->
+
+# Demo Deep Dive
+
+## Let's walk through each step
+
+---
+
+# The Starting Point
+
+The developer finds themselves in a **common situation**:
+
+- Working on a feature, pulling in configs from various sources
+- Hardcoded API keys, database passwords, cloud credentials in the code
+- **They may not even realize** some of these are secrets
+
+```python
+# config.py - a typical file with secret sprawl
+AWS_ACCESS_KEY = "AKIA2E0A8F3B244C9986"
+DB_PASSWORD = "super_secret_prod_password"
+SLACK_WEBHOOK = "https://hooks.slack.com/services/T00/B00/xxxxx"
+```
+
+This is the starting point for most secret leaks.
+
+---
+
+# Asking AI for Help
+
+The developer knows **plaintext secrets are bad** — they ask the AI agent:
+
+```
+Developer: "Can you review my code for security issues
+            and help me fix anything you find?"
+```
+
+The developer doesn't need to know:
+- Which scanner to use or how to configure it
+- Which vault to store secrets in
+- What the vault API looks like
+
+**The AI agent figures all of that out** using the MCP servers available to it.
+
+---
+
+# GitGuardian MCP in Action
+
+The agent calls `scan_secrets` and detects **3 hardcoded credentials**:
+
+```
+Agent: ⚠ I found 3 secrets in config.py:
+       1. AWS Access Key (line 2) — HIGH severity
+       2. Database Password (line 3) — HIGH severity
+       3. Slack Webhook URL (line 4) — MEDIUM severity
+       Let me remediate these for you.
+```
+
+**Without MCP**: run CLI manually, read output, look up docs, file tickets.
+
+**With MCP** — it happens in one natural language request.
+
+---
+
+# CyberArk Conjur MCP in Action
+
+The agent calls the CyberArk MCP server to **vault each secret**:
+
+```
+Agent: I'll store these secrets in Conjur vault:
+       1. ✅ AWS key → conjur/prod/aws/access-key
+       2. ✅ DB password → conjur/prod/db/password
+       3. ✅ Slack webhook → conjur/prod/slack/webhook
+       Updating your code to use vault references...
+```
+
+**Without MCP**: log into Conjur, understand policy structure, create paths/ACLs, manually replace secrets, test runtime access.
+
+**With MCP** — the AI handles vault API, auth, policies, and code updates.
+
+---
+
+# The Result
+
+The code is now **clean and secure**:
+
+```python
+# config.py - after AI remediation
+import os
+AWS_ACCESS_KEY = os.environ["CONJUR_AWS_ACCESS_KEY"]
+DB_PASSWORD = os.environ["CONJUR_DB_PASSWORD"]
+SLACK_WEBHOOK = os.environ["CONJUR_SLACK_WEBHOOK"]
+```
+
+- Secrets in **Conjur vault** with proper policies
+- Code uses **environment variables** injected at runtime
+- **No hardcoded secrets** — no risk of leaking to git
+
+**Total time: seconds.** Without AI: 30-60 min per secret.
+
+---
+
+<!-- _class: divider -->
+
+# Putting It All Together
+
+## From detection to vault in seconds
+
+---
+
+# The Complete Workflow
+
+```
+  Developer (IDE)         GitGuardian MCP         CyberArk MCP
+       │                        │                       │
+       │  "Review my code"      │                       │
+       │───────────────────────►│                       │
+       │                        │  scan_secrets         │
+       │   ⚠ Found 3 secrets    │                       │
+       │◄───────────────────────│                       │
+       │                        │                       │
+       │  "Help me fix these"   │                       │
+       │───────────────────────►│  remediation plan     │
+       │                        │──────────────────────►│
+       │                        │                       │  store in vault
+       │                        │◄──────────────────────│  return references
+       │   ✅ Secrets vaulted    │                       │
+       │◄───────────────────────│                       │
+       │   Code updated with vault references           │
+```
+
+---
+
+# Why This Matters
+
+| Without MCP | With GitGuardian + CyberArk MCP |
+|---|---|
+| Secrets found in CI/CD (hours later) | Secrets found **while coding** |
+| Manual triage and ticket creation | **AI-guided** remediation in IDE |
+| Developer looks up vault docs | AI **knows** the vault API |
+| 30-60 min per secret to vault | **Seconds** per secret |
+| Context switch to 3+ tools | **Stay in your editor** |
+| Cognitive load on the developer | **AI handles the toil** |
 
 ---
 
@@ -662,10 +766,11 @@ Just ask your agent: *"Scan this file for secrets"* — it handles the rest.
 
 # Key Takeaways
 
-1. **MCP is the universal standard** for connecting AI agents to tools
-2. **Agents become more capable** when they can discover and use tools dynamically
-3. **GitGuardian MCP** brings secrets security **into the developer workflow**
-4. **Shift-left security** — catch secrets before they leak, not after
+1. **Secret & vault sprawl is a real, growing problem** — NHIs outnumber humans 50:1
+2. **Vaults are the right answer** — but they're hard to use consistently at scale
+3. **MCP bridges the gap** — AI agents orchestrate detection and remediation automatically
+4. **GitGuardian detects, CyberArk vaults** — two MCP servers, one seamless workflow
+5. **Lower cognitive load** — developers focus on code, AI handles security toil
 
 ---
 
@@ -675,4 +780,4 @@ Just ask your agent: *"Scan this file for secrets"* — it handles the rest.
 
 ## Questions?
 
-[modelcontextprotocol.io](https://modelcontextprotocol.io) · [github.com/GitGuardian/gg-mcp](https://github.com/GitGuardian/gg-mcp) · [gitguardian.com](https://gitguardian.com)
+[gitguardian.com](https://gitguardian.com) · [cyberark.com/conjur](https://www.cyberark.com/products/secrets-management/) · [github.com/GitGuardian/gg-mcp](https://github.com/GitGuardian/gg-mcp) · [modelcontextprotocol.io](https://modelcontextprotocol.io)

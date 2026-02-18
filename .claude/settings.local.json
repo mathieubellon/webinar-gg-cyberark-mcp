@@ -4,7 +4,16 @@
       "Skill(new)",
       "Skill(deploy)",
       "Skill(domain)",
-      "Bash(railway logs:*)"
+      "Bash(railway logs:*)",
+      "Bash(npm run build:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(railway up:*)",
+      "Bash(pkill -f \"serve /Users/mathieu.bellon/Desktop/webinar/dist\")"
     ]
   }
 }
