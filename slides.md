@@ -2,7 +2,7 @@
 marp: true
 theme: default
 paginate: true
-footer: '<span class="footer-left"><img src="gitguardian-icon-white-background.svg" class="footer-logo" alt="" /> GitGuardian</span><span class="footer-right">Confidential</span>'
+footer: '<span class="footer-left"><img src="images/gitguardian-icon-white-background.svg" class="footer-logo" alt="" /> GitGuardian</span><span class="footer-right">Confidential</span>'
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
@@ -330,9 +330,9 @@ style: |
 
 <table style="width:100%; border:none !important; margin-top:0.5em;">
 <tr style="border:none !important;">
-<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="mathieu-bellon.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
-<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="or-geisler.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
-<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="dwayne-mcdaniel.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
+<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="images/mathieu-bellon.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
+<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="images/or-geisler.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
+<td style="text-align:center; border:none !important; padding:0 16px; background:transparent !important;"><img src="images/dwayne-mcdaniel.jpg" style="width:130px; height:130px; border-radius:50%; object-fit:cover; border:3px solid var(--accent);" /></td>
 </tr>
 <tr style="border:none !important;">
 <td style="text-align:center; border:none !important; padding:8px 16px 0; background:transparent !important; font-size:0.8em; line-height:1.4;"><strong>Mathieu Bellon</strong><br/>Product Manager<br/>GitGuardian</td>
